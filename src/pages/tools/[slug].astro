@@ -1,0 +1,479 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import { TOOLS } from '../../data/tools-registry';
+
+// Import ALL tool components (add files as you create them)
+import AgeCalculator from '../../components/tools/AgeCalculator.vue';
+import PercentageCalculator from '../../components/tools/PercentageCalculator.vue';
+import BmiCalculator from '../../components/tools/BmiCalculator.vue';
+import WordCounter from '../../components/tools/WordCounter.vue';
+import CaseConverter from '../../components/tools/CaseConverter.vue';
+import TextReverser from '../../components/tools/TextReverser.vue';
+import RemoveLineBreaks from '../../components/tools/RemoveLineBreaks.vue';
+import PasswordGenerator from '../../components/tools/PasswordGenerator.vue';
+import QrGenerator from '../../components/tools/QrGenerator.vue';
+import LoremIpsum from '../../components/tools/LoremIpsum.vue';
+import RandomNumber from '../../components/tools/RandomNumber.vue';
+import Base64Encoder from '../../components/tools/Base64Encoder.vue';
+import UrlEncoder from '../../components/tools/UrlEncoder.vue';
+import HashGenerator from '../../components/tools/HashGenerator.vue';
+import JsonFormatter from '../../components/tools/JsonFormatter.vue';
+
+// Generate static paths for all tools
+export async function getStaticPaths() {
+  return TOOLS.map((tool) => ({
+    params: { slug: tool.id },
+    props: { tool }
+  }));
+}
+
+const { tool } = Astro.props;
+
+if (!tool) {
+  return Astro.redirect('/404');
+}
+
+// Map tool IDs to check if component exists
+const portedTools = [
+  'age-calculator',
+  'percentage-calculator',
+  'bmi-calculator',
+  'word-counter',
+  'case-converter',
+  'text-reverser',
+  'remove-line-breaks',
+  'password-generator',
+  'qr-generator',
+  'lorem-ipsum',
+  'random-number',
+  'base64-encoder',
+  'url-encoder',
+  'hash-generator',
+  'json-formatter'
+];
+
+const hasComponent = portedTools.includes(tool.id);
+---
+
+<BaseLayout 
+  title={tool.name} 
+  description={tool.description}
+  keywords={tool.keywords.join(', ')}
+>
+  <div class="tool-page">
+    <div class="container">
+      <div class="tool-container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-separator">›</span>
+          <span>{tool.name}</span>
+        </nav>
+
+        <!-- Tool Header -->
+        <header class="tool-header">
+          <h1>
+            <span class="tool-icon-large">{tool.icon}</span>
+            {tool.name}
+          </h1>
+          <p>{tool.description}</p>
+        </header>
+
+        <!-- Tool Interface -->
+        <div class="tool-interface">
+          {hasComponent && tool.id === 'age-calculator' && <AgeCalculator client:load />}
+          {hasComponent && tool.id === 'percentage-calculator' && <PercentageCalculator client:load />}
+          {hasComponent && tool.id === 'bmi-calculator' && <BmiCalculator client:load />}
+          {hasComponent && tool.id === 'word-counter' && <WordCounter client:load />}
+          {hasComponent && tool.id === 'case-converter' && <CaseConverter client:load />}
+          {hasComponent && tool.id === 'text-reverser' && <TextReverser client:load />}
+          {hasComponent && tool.id === 'remove-line-breaks' && <RemoveLineBreaks client:load />}
+          {hasComponent && tool.id === 'password-generator' && <PasswordGenerator client:load />}
+          {hasComponent && tool.id === 'qr-generator' && <QrGenerator client:load />}
+          {hasComponent && tool.id === 'lorem-ipsum' && <LoremIpsum client:load />}
+          {hasComponent && tool.id === 'random-number' && <RandomNumber client:load />}
+          {hasComponent && tool.id === 'base64-encoder' && <Base64Encoder client:load />}
+          {hasComponent && tool.id === 'url-encoder' && <UrlEncoder client:load />}
+          {hasComponent && tool.id === 'hash-generator' && <HashGenerator client:load />}
+          {hasComponent && tool.id === 'json-formatter' && <JsonFormatter client:load />}
+          
+          {!hasComponent && (
+            <div class="coming-soon">
+              <h3>🚧 Tool Coming Soon</h3>
+              <p>This tool is being migrated to the new platform.</p>
+              <p class="info-text">
+                Type: <strong>{tool.type}</strong><br>
+                Category: <strong>{tool.category}</strong>
+              </p>
+            </div>
+          )}
+        </div>
+
+        <!-- How to Use Section -->
+        <div class="info-box">
+          <h3>How to Use</h3>
+          
+          {tool.id === 'age-calculator' && (
+            <ul>
+              <li>Enter your date of birth in the first field</li>
+              <li>The second field defaults to today's date, but you can change it to calculate age on any date</li>
+              <li>Click "Calculate Age" to see detailed age information</li>
+              <li>Find out exactly how many days, hours, and minutes you've been alive</li>
+            </ul>
+          )}
+          
+          {tool.id === 'percentage-calculator' && (
+            <ul>
+              <li><strong>Calculator 1:</strong> Find what X% of Y equals (e.g., 20% of 100 = 20)</li>
+              <li><strong>Calculator 2:</strong> Find what percentage X is of Y (e.g., 25 is 25% of 100)</li>
+              <li><strong>Calculator 3:</strong> Calculate percentage change between two values</li>
+              <li><strong>Calculator 4:</strong> Add or subtract a percentage from a value</li>
+              <li>All calculators update in real-time as you type</li>
+            </ul>
+          )}
+          
+          {tool.id === 'bmi-calculator' && (
+            <ul>
+              <li>Enter your weight in kilograms or pounds</li>
+              <li>Enter your height in centimeters or feet/inches</li>
+              <li>Your BMI is calculated instantly as you type</li>
+              <li>See your BMI category (Underweight, Normal, Overweight, Obese)</li>
+              <li>Get health recommendations based on your BMI</li>
+            </ul>
+          )}
+          
+          {tool.id === 'word-counter' && (
+            <ul>
+              <li>Type or paste your text into the text area</li>
+              <li>Get instant counts for words, characters, sentences, and paragraphs</li>
+              <li>See reading time estimate</li>
+              <li>Track character count with and without spaces</li>
+              <li>Perfect for essays, articles, and social media posts</li>
+            </ul>
+          )}
+          
+          {tool.id === 'case-converter' && (
+            <ul>
+              <li>Type or paste your text into the text area</li>
+              <li>Choose from multiple conversion options:</li>
+              <li><strong>UPPERCASE:</strong> ALL CAPS TEXT</li>
+              <li><strong>lowercase:</strong> all small letters</li>
+              <li><strong>Title Case:</strong> Capitalize First Letter Of Each Word</li>
+              <li><strong>Sentence case:</strong> Capitalize first letter of sentences</li>
+              <li><strong>aLtErNaTiNg cAsE:</strong> Alternating upper and lower</li>
+            </ul>
+          )}
+          
+          {tool.id === 'text-reverser' && (
+            <ul>
+              <li><strong>Reverse Text:</strong> Reverses all characters (Hello → olleH)</li>
+              <li><strong>Reverse Words:</strong> Reverses word order (Hello World → World Hello)</li>
+              <li><strong>Reverse Lines:</strong> Reverses line order in multi-line text</li>
+              <li>All processing happens locally - your text never leaves your browser</li>
+            </ul>
+          )}
+          
+          {tool.id === 'remove-line-breaks' && (
+            <ul>
+              <li>Paste text with unwanted line breaks</li>
+              <li>Choose to remove all line breaks or add line breaks between paragraphs</li>
+              <li>Useful for cleaning up copied text from PDFs or websites</li>
+              <li>Preserves paragraph structure when needed</li>
+            </ul>
+          )}
+          
+          {tool.id === 'password-generator' && (
+            <ul>
+              <li>Set your desired password length (8-64 characters)</li>
+              <li>Choose character types: uppercase, lowercase, numbers, symbols</li>
+              <li>Generate secure random passwords instantly</li>
+              <li>Copy to clipboard with one click</li>
+              <li>All passwords generated locally - never sent to any server</li>
+            </ul>
+          )}
+          
+          {tool.id === 'qr-generator' && (
+            <ul>
+              <li>Enter text, URL, or any data you want to encode</li>
+              <li>QR code generates instantly as you type</li>
+              <li>Download QR code as PNG image</li>
+              <li>Perfect for sharing links, WiFi passwords, contact info</li>
+            </ul>
+          )}
+          
+          {tool.id === 'lorem-ipsum' && (
+            <ul>
+              <li>Choose the number of paragraphs you need</li>
+              <li>Select output format: paragraphs, sentences, or words</li>
+              <li>Generate placeholder text instantly</li>
+              <li>Copy to clipboard with one click</li>
+              <li>Perfect for mockups, designs, and testing</li>
+            </ul>
+          )}
+          
+          {tool.id === 'random-number' && (
+            <ul>
+              <li>Set minimum and maximum values</li>
+              <li>Choose how many random numbers to generate</li>
+              <li>Select integer or decimal numbers</li>
+              <li>Allow or prevent duplicate numbers</li>
+              <li>Perfect for raffles, games, statistical sampling</li>
+            </ul>
+          )}
+          
+          {tool.id === 'base64-encoder' && (
+            <ul>
+              <li><strong>Encode:</strong> Convert text to Base64 format</li>
+              <li><strong>Decode:</strong> Convert Base64 back to readable text</li>
+              <li>Useful for data transmission and storage</li>
+              <li>Commonly used in web development and APIs</li>
+              <li>All conversion happens locally in your browser</li>
+            </ul>
+          )}
+          
+          {tool.id === 'url-encoder' && (
+            <ul>
+              <li><strong>Encode:</strong> Convert special characters to URL-safe format</li>
+              <li><strong>Decode:</strong> Convert URL-encoded text back to normal</li>
+              <li>Essential for working with URLs and query parameters</li>
+              <li>Handles spaces, special characters, and international characters</li>
+            </ul>
+          )}
+          
+          {tool.id === 'hash-generator' && (
+            <ul>
+              <li>Enter any text or data</li>
+              <li>Generate multiple hash types simultaneously:</li>
+              <li><strong>MD5:</strong> 128-bit hash (32 characters)</li>
+              <li><strong>SHA-1:</strong> 160-bit hash (40 characters)</li>
+              <li><strong>SHA-256:</strong> 256-bit hash (64 characters)</li>
+              <li><strong>SHA-512:</strong> 512-bit hash (128 characters)</li>
+              <li>Useful for checksums, password verification, data integrity</li>
+            </ul>
+          )}
+          
+          {tool.id === 'json-formatter' && (
+            <ul>
+              <li><strong>Format:</strong> Beautify minified JSON with proper indentation</li>
+              <li><strong>Minify:</strong> Remove whitespace to reduce file size</li>
+              <li><strong>Validate:</strong> Check if JSON syntax is correct</li>
+              <li>Choose indentation size (2 or 4 spaces)</li>
+              <li>Essential for debugging and working with APIs</li>
+            </ul>
+          )}
+          
+          {!hasComponent && (
+            <p>{tool.description}</p>
+          )}
+        </div>
+
+        <!-- Additional Info Sections -->
+        {tool.id === 'age-calculator' && (
+          <div class="info-box">
+            <h3>About Age Calculation</h3>
+            <p>This calculator uses precise date arithmetic to determine your exact age. It accounts for:</p>
+            <ul>
+              <li><strong>Varying month lengths:</strong> Handles 28-31 days per month correctly</li>
+              <li><strong>Leap years:</strong> Properly calculates ages across leap years</li>
+              <li><strong>Time zones:</strong> Uses your local date for accurate results</li>
+            </ul>
+            <p class="privacy-note">
+              <strong>Privacy:</strong> All calculations happen in your browser. No data is sent to any server.
+            </p>
+          </div>
+        )}
+
+        {tool.id === 'percentage-calculator' && (
+          <div class="info-box">
+            <h3>About Percentage Calculations</h3>
+            <ul>
+              <li><strong>Basic Percentage:</strong> To find X% of Y, multiply Y by (X/100)</li>
+              <li><strong>Percentage of Total:</strong> To find what percent X is of Y, divide X by Y and multiply by 100</li>
+              <li><strong>Percentage Change:</strong> ((New - Old) / Old) × 100. Positive means increase, negative means decrease</li>
+              <li><strong>Add Percentage:</strong> Value × (1 + Percent/100)</li>
+              <li><strong>Subtract Percentage:</strong> Value × (1 - Percent/100)</li>
+            </ul>
+            <p class="privacy-note">
+              <strong>Privacy:</strong> All calculations happen in your browser. No data is sent to any server.
+            </p>
+          </div>
+        )}
+
+        {tool.id === 'bmi-calculator' && (
+          <div class="info-box">
+            <h3>Understanding BMI</h3>
+            <p>Body Mass Index (BMI) is a measure of body fat based on height and weight. BMI categories:</p>
+            <ul>
+              <li><strong>Underweight:</strong> BMI less than 18.5</li>
+              <li><strong>Normal weight:</strong> BMI 18.5-24.9</li>
+              <li><strong>Overweight:</strong> BMI 25-29.9</li>
+              <li><strong>Obese:</strong> BMI 30 or greater</li>
+            </ul>
+            <p class="privacy-note">
+              <strong>Note:</strong> BMI is a screening tool and doesn't diagnose health. Consult healthcare professionals for medical advice.
+            </p>
+          </div>
+        )}
+
+        {(tool.id === 'password-generator' || tool.id === 'hash-generator' || tool.id === 'base64-encoder' || tool.id === 'url-encoder') && (
+          <div class="info-box">
+            <h3>Security & Privacy</h3>
+            <p class="privacy-note">
+              <strong>100% Client-Side:</strong> All operations happen locally in your browser. 
+              No data is ever sent to any server. Your information stays completely private.
+            </p>
+          </div>
+        )}
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page {
+    padding: var(--space-2xl) 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .tool-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--color-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-text-tertiary);
+  }
+
+  .tool-header {
+    margin-bottom: var(--space-2xl);
+    text-align: center;
+  }
+
+  .tool-header h1 {
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .tool-icon-large {
+    font-size: var(--font-size-4xl);
+  }
+
+  .tool-header p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .tool-interface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .coming-soon {
+    text-align: center;
+    padding: var(--space-3xl) var(--space-xl);
+  }
+
+  .coming-soon h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .coming-soon p {
+    color: var(--color-text-secondary);
+    margin-bottom: var(--space-sm);
+  }
+
+  .info-text {
+    margin-top: var(--space-lg);
+    font-size: var(--font-size-sm);
+  }
+
+  .info-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .info-box:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-lg);
+  }
+
+  .info-box p {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box ul {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-xl);
+  }
+
+  .info-box li {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .privacy-note {
+    background: rgba(16, 185, 129, 0.1);
+    border-left: 3px solid var(--color-success);
+    padding: var(--space-md);
+    border-radius: var(--radius-sm);
+    margin-top: var(--space-md);
+  }
+
+  @media (max-width: 768px) {
+    .tool-interface {
+      padding: var(--space-lg);
+    }
+
+    .tool-header h1 {
+      flex-direction: column;
+      gap: var(--space-sm);
+      font-size: var(--font-size-2xl);
+    }
+
+    .tool-icon-large {
+      font-size: var(--font-size-3xl);
+    }
+  }
+</style>

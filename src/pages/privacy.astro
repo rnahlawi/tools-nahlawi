@@ -1,0 +1,94 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const lastUpdated = 'December, 2025';
+---
+
+<BaseLayout 
+  title="Privacy Policy" 
+  description="Privacy Policy for Nahlawi Tools - We respect your privacy and don't collect any personal data."
+>
+  <div class="page-content">
+    <div class="container">
+      <article class="content-article">
+        <header class="page-header">
+          <h1>Privacy Policy</h1>
+          <p class="lead">Your privacy is our priority</p>
+          <p class="updated">Last updated: {lastUpdated}</p>
+        </header>
+
+        <div class="tl-dr">
+  <h2>📌 TL;DR</h2>
+  <p>
+    <strong>We don't collect, store, track, or analyze anything. Period.</strong><br>
+    All tools run entirely in your browser. Your data never leaves your device.<br>
+    We don't even use analytics - we respect your privacy completely.
+  </p>
+</div>
+
+<section class="content-section">
+  <h2>1. What We Don't Collect</h2>
+  <p>
+    Nahlawi Tools is designed with <strong>absolute privacy</strong> as the foundation. We:
+  </p>
+  <ul>
+    <li>✅ <strong>No cookies</strong> (except dark mode preference stored locally)</li>
+    <li>✅ <strong>No analytics</strong> - not even privacy-friendly ones</li>
+    <li>✅ <strong>No tracking scripts</strong> of any kind</li>
+    <li>✅ <strong>No user accounts</strong> or sign-ups</li>
+    <li>✅ <strong>No data storage</strong> on our servers</li>
+    <li>✅ <strong>No third-party services</strong></li>
+    <li>✅ <strong>No ads</strong> or advertising networks</li>
+  </ul>
+  <p class="privacy-highlight">
+    We literally cannot see what you're doing on this site. And that's by design.
+  </p>
+</section>
+
+<section class="content-section">
+  <h2>2. Google Search Console</h2>
+  <p>
+    We use Google Search Console to understand how people find us through search engines. 
+    This is a webmaster tool, not user tracking. It shows us:
+  </p>
+  <ul>
+    <li>Which search queries lead to our site</li>
+    <li>How our pages appear in search results</li>
+    <li>Technical issues with our site</li>
+  </ul>
+  <p>
+    <strong>Important:</strong> Google Search Console does NOT track individual users, 
+    does NOT use cookies, and does NOT collect personal data. It only shows aggregate 
+    search statistics.
+  </p>
+</section>
+
+<section class="content-section">
+  <h2>3. Future Plans</h2>
+  <p>
+    If we ever decide to add any tracking, analytics, or advertising, we will:
+  </p>
+  <ul>
+    <li>Update this policy at least 30 days in advance</li>
+    <li>Announce the change prominently on the homepage</li>
+    <li>Only use privacy-first services (no Google Analytics, no ad trackers)</li>
+    <li>Make it completely optional (opt-in, not opt-out)</li>
+    <li>Continue to keep all tool processing local in your browser</li>
+  </ul>
+  <p>
+    <strong>Our commitment:</strong> Your data will NEVER be sold, shared, or used 
+    for any purpose other than improving the tools you love.
+  </p>
+</section>
+
+<style>
+  .privacy-highlight {
+    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
+    border-left: 4px solid var(--color-success);
+    padding: var(--space-lg);
+    border-radius: var(--radius-md);
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    margin: var(--space-lg) 0;
+  }
+</style>

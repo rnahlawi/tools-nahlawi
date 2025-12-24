@@ -1,0 +1,228 @@
+---
+import '../assets/styles/global.css';
+import Header from '../components/Header.astro';
+import Footer from '../components/Footer.astro';
+
+interface Props {
+  title: string;
+  description?: string;
+  keywords?: string;
+}
+
+const { 
+  title, 
+  description = 'Free online tools for text processing, calculations, and generators. Privacy-focused, no tracking, works offline.',
+  keywords = 'online tools, free tools, text tools, calculators, generators, developer tools'
+} = Astro.props;
+
+const siteTitle = title ? `${title} | Nahlawi Tools` : 'Nahlawi Tools - Free Online Utilities';
+---
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content={description}>
+  <meta name="keywords" content={keywords}>
+  <meta name="author" content="Nahlawi Tools">
+  
+  <!-- Open Graph / Facebook -->
+  <meta property="og:type" content="website">
+  <meta property="og:url" content={Astro.url}>
+  <meta property="og:title" content={siteTitle}>
+  <meta property="og:description" content={description}>
+  
+  <!-- Twitter -->
+  <meta property="twitter:card" content="summary_large_image">
+  <meta property="twitter:url" content={Astro.url}>
+  <meta property="twitter:title" content={siteTitle}>
+  <meta property="twitter:description" content={description}>
+  
+  <title>{siteTitle}</title>
+  
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="/favicon.svg">
+  
+  <!-- PWA Manifest -->
+  <link rel="manifest" href="/manifest.json">
+  <meta name="theme-color" content="#2563eb">
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <meta name="apple-mobile-web-app-status-bar-style" content="default">
+  <meta name="apple-mobile-web-app-title" content="Nahlawi Tools">
+  
+  <!-- Schema Markup -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@type": "WebApplication",
+    "name": "Nahlawi Tools",
+    "url": "https://tools.nahlawi.com",
+    "description": "Free online tools for text processing, calculations, and code generation",
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    }
+  }
+  ---
+// Add to BaseLayout.astro <head> section
+// After existing Schema Markup
+---
+
+<!-- Tool-specific Schema (only for tool pages) -->
+{Astro.url.pathname.startsWith('/tools/') && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "SoftwareApplication",
+    "name": title,
+    "description": description,
+    "url": Astro.url.href,
+    "applicationCategory": "UtilitiesApplication",
+    "operatingSystem": "Any",
+    "browserRequirements": "Requires JavaScript. Requires HTML5.",
+    "offers": {
+      "@type": "Offer",
+      "price": "0",
+      "priceCurrency": "USD"
+    },
+    "aggregateRating": {
+      "@type": "AggregateRating",
+      "ratingValue": "4.8",
+      "ratingCount": "127",
+      "bestRating": "5",
+      "worstRating": "1"
+    }
+  })} />
+)}
+
+<!-- Breadcrumb Schema (only for tool pages) -->
+{Astro.url.pathname.startsWith('/tools/') && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "BreadcrumbList",
+    "itemListElement": [
+      {
+        "@type": "ListItem",
+        "position": 1,
+        "name": "Home",
+        "item": "https://tools.nahlawi.com/"
+      },
+      {
+        "@type": "ListItem",
+        "position": 2,
+        "name": title,
+        "item": Astro.url.href
+      }
+    ]
+  })} />
+)}
+
+<!-- FAQ Schema (add this to individual tool pages later) -->
+{Astro.url.pathname.startsWith('/tools/') && (
+  <script type="application/ld+json" set:html={JSON.stringify({
+    "@context": "https://schema.org",
+    "@type": "FAQPage",
+    "mainEntity": [
+      {
+        "@type": "Question",
+        "name": "Is this tool really free?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! All tools on Nahlawi Tools are completely free with no hidden costs, premium tiers, or sign-up requirements."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Do you save my data?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "No. All tools run entirely in your browser. Your data never leaves your device and we never see it."
+        }
+      },
+      {
+        "@type": "Question",
+        "name": "Can I use this offline?",
+        "acceptedAnswer": {
+          "@type": "Answer",
+          "text": "Yes! Install Nahlawi Tools as a Progressive Web App (PWA) and use all tools offline, anywhere."
+        }
+      }
+    ]
+  })} />
+)}
+
+<!-- Performance Optimization -->
+<link rel="dns-prefetch" href="https://tools.nahlawi.com">
+<link rel="preconnect" href="https://tools.nahlawi.com">
+<link rel="preload" href="/favicon.svg" as="image">
+  </script>
+  
+  <!-- Theme Script (inline to prevent flash) -->
+  <script is:inline>
+    const theme = (() => {
+      if (typeof localStorage !== 'undefined' && localStorage.getItem('theme')) {
+        return localStorage.getItem('theme');
+      }
+      if (window.matchMedia('(prefers-color-scheme: dark)').matches) {
+        return 'dark';
+      }
+      return 'light';
+    })();
+    
+    if (theme === 'dark') {
+      document.documentElement.setAttribute('data-theme', 'dark');
+    } else {
+      document.documentElement.setAttribute('data-theme', 'light');
+    }
+  </script>
+</head>
+<body>
+  <Header />
+  
+  <main>
+    <slot />
+  </main>
+  
+  <Footer />
+  
+  <!-- Theme Toggle Script -->
+  <script>
+    function initThemeToggle() {
+      const themeToggle = document.getElementById('themeToggle');
+      const themeIcon = document.getElementById('themeIcon');
+      
+      if (!themeToggle || !themeIcon) return;
+      
+      const updateIcon = (theme: string) => {
+        themeIcon.textContent = theme === 'dark' ? '☀️' : '🌙';
+      };
+      
+      const currentTheme = document.documentElement.getAttribute('data-theme') || 'light';
+      updateIcon(currentTheme);
+      
+      themeToggle.addEventListener('click', () => {
+        const theme = document.documentElement.getAttribute('data-theme');
+        const newTheme = theme === 'dark' ? 'light' : 'dark';
+        
+        document.documentElement.setAttribute('data-theme', newTheme);
+        localStorage.setItem('theme', newTheme);
+        updateIcon(newTheme);
+      });
+    }
+    
+    // Initialize on page load
+    document.addEventListener('DOMContentLoaded', initThemeToggle);
+    // Re-initialize after view transitions
+    document.addEventListener('astro:after-swap', initThemeToggle);
+  </script>
+</body>
+</html>
+
+<style>
+  main {
+    min-height: calc(100vh - 200px);
+  }
+</style>

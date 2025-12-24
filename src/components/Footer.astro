@@ -1,0 +1,106 @@
+---
+// Footer Component
+const currentYear = new Date().getFullYear();
+---
+
+<footer class="footer">
+  <div class="container">
+    <div class="footer-content">
+      <div class="footer-section">
+        <h4>Nahlawi Tools</h4>
+        <p class="footer-description">
+          Free online tools that respect your privacy. All tools run locally in your browser.
+        </p>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Quick Links</h4>
+        <ul class="footer-links">
+          <li><a href="/">Home</a></li>
+          <li><a href="/about">About</a></li>
+          <li><a href="/privacy">Privacy Policy</a></li>
+        </ul>
+      </div>
+      
+      <div class="footer-section">
+        <h4>Categories</h4>
+        <ul class="footer-links">
+          <li><a href="/#text">Text Tools</a></li>
+          <li><a href="/#calculator">Calculators</a></li>
+          <li><a href="/#generator">Generators</a></li>
+          <li><a href="/#developer">Developer Tools</a></li>
+        </ul>
+      </div>
+    </div>
+    
+    <div class="footer-bottom">
+      <p>&copy; {currentYear} Nahlawi Tools. All rights reserved. Built with ❤️ for the community.</p>
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background: var(--color-surface);
+    border-top: 1px solid var(--color-border);
+    padding: var(--space-2xl) 0 var(--space-lg);
+    margin-top: var(--space-3xl);
+  }
+
+  .footer-content {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-xl);
+    margin-bottom: var(--space-xl);
+  }
+
+  .footer-section h4 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-md);
+    color: var(--color-text);
+  }
+
+  .footer-description {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .footer-links {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+  }
+
+  .footer-links li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .footer-links a {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    transition: color var(--transition-fast);
+  }
+
+  .footer-links a:hover {
+    color: var(--color-primary);
+  }
+
+  .footer-bottom {
+    text-align: center;
+    padding-top: var(--space-lg);
+    border-top: 1px solid var(--color-border);
+  }
+
+  .footer-bottom p {
+    color: var(--color-text-tertiary);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .footer-content {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

@@ -1,0 +1,201 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+---
+
+<BaseLayout 
+  title="About" 
+  description="Learn about Nahlawi Tools - Free, privacy-focused online utilities that work entirely in your browser."
+>
+  <div class="page-content">
+    <div class="container">
+      <article class="content-article">
+        <header class="page-header">
+          <h1>About Nahlawi Tools</h1>
+          <p class="lead">Free, privacy-focused online utilities built for everyone</p>
+        </header>
+
+        <section class="content-section">
+          <h2>🎯 Our Mission</h2>
+          <p>
+            Nahlawi Tools provides free, high-quality online utilities that respect your privacy. 
+            All tools run entirely in your browser - your data never leaves your device.
+          </p>
+        </section>
+
+        <section class="content-section">
+          <h2>🔒 Privacy First</h2>
+          <ul>
+            <li><strong>No Tracking:</strong> We don't use analytics or tracking scripts</li>
+            <li><strong>No Sign-up:</strong> Use all tools instantly, no account required</li>
+            <li><strong>No Data Collection:</strong> Your data stays on your device</li>
+            <li><strong>Open Source:</strong> All code is transparent and auditable</li>
+          </ul>
+        </section>
+
+        <section class="content-section">
+          <h2>⚡ Features</h2>
+          <div class="features-grid">
+            <div class="feature-card">
+              <h3>🚀 Fast & Lightweight</h3>
+              <p>Built with modern web technologies for optimal performance</p>
+            </div>
+            <div class="feature-card">
+              <h3>📱 Mobile Friendly</h3>
+              <p>Works perfectly on all devices - phone, tablet, or desktop</p>
+            </div>
+            <div class="feature-card">
+              <h3>🌙 Dark Mode</h3>
+              <p>Easy on the eyes with automatic dark mode support</p>
+            </div>
+            <div class="feature-card">
+              <h3>🔄 Always Free</h3>
+              <p>No premium features, no paywalls, just tools that work</p>
+            </div>
+          </div>
+        </section>
+
+        <section class="content-section">
+          <h2>🛠️ Technology</h2>
+          <p>
+            <strong>Version:</strong> 3.0.0<br>
+            <strong>Built with:</strong> Astro, Vue 3, TypeScript<br>
+            <strong>Hosted on:</strong> Hostinger<br>
+            <strong>Updated:</strong> December 2025
+          </p>
+        </section>
+
+        <section class="content-section">
+          <h2>📧 Contact</h2>
+          <p>
+            Have a suggestion for a new tool? Found a bug? We'd love to hear from you!
+          </p>
+          <p>
+            <strong>Email:</strong> <a href="mailto:rush@nahlawi.com">rush@nahlawi.com</a>
+          </p>
+        </section>
+
+        <section class="content-section">
+          <h2>🙏 Acknowledgments</h2>
+          <p>
+            Special thanks to the open-source community and the developers of 
+            <a href="https://astro.build" target="_blank">Astro</a>, 
+            <a href="https://vuejs.org" target="_blank">Vue.js</a>, and 
+            <a href="https://github.com/CorentinTh/it-tools" target="_blank">it-tools</a>.
+          </p>
+        </section>
+      </article>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .page-content {
+    padding: var(--space-3xl) 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .content-article {
+    max-width: 800px;
+    margin: 0 auto;
+  }
+
+  .page-header {
+    text-align: center;
+    margin-bottom: var(--space-3xl);
+    padding-bottom: var(--space-2xl);
+    border-bottom: 2px solid var(--color-border);
+  }
+
+  .page-header h1 {
+    margin-bottom: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+
+  .lead {
+    font-size: var(--font-size-xl);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .content-section {
+    margin-bottom: var(--space-3xl);
+  }
+
+  .content-section h2 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-lg);
+    font-size: var(--font-size-2xl);
+  }
+
+  .content-section h3 {
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-lg);
+  }
+
+  .content-section p {
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-md);
+  }
+
+  .content-section ul {
+    margin: var(--space-lg) 0;
+    padding-left: var(--space-xl);
+  }
+
+  .content-section li {
+    margin-bottom: var(--space-md);
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+  }
+
+  .content-section li strong {
+    color: var(--color-text);
+  }
+
+  .features-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: var(--space-lg);
+    margin-top: var(--space-lg);
+  }
+
+  .feature-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-lg);
+  }
+
+  .feature-card h3 {
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-card p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  @media (max-width: 768px) {
+    .page-content {
+      padding: var(--space-2xl) 0;
+    }
+
+    .features-grid {
+      grid-template-columns: 1fr;
+    }
+  }
+</style>

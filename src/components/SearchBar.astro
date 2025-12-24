@@ -1,0 +1,84 @@
+---
+// SearchBar Component with client-side search functionality
+---
+
+<div class="search-container">
+  <div class="search-box">
+    <span class="search-icon">🔍</span>
+    <input 
+      type="text" 
+      class="search-input" 
+      id="toolSearch" 
+      placeholder="Search tools..."
+      aria-label="Search tools"
+    >
+  </div>
+</div>
+
+<style>
+  .search-container {
+    max-width: 600px;
+    margin: 0 auto var(--space-2xl);
+  }
+
+  .search-box {
+    position: relative;
+  }
+
+  .search-input {
+    width: 100%;
+    padding: var(--space-md) var(--space-lg) var(--space-md) 3rem;
+    font-size: var(--font-size-base);
+    border: 2px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    background: var(--color-surface);
+    color: var(--color-text);
+    transition: all var(--transition-fast);
+  }
+
+  .search-input:focus {
+    outline: none;
+    border-color: var(--color-primary);
+    box-shadow: 0 0 0 3px var(--color-primary-alpha);
+  }
+
+  .search-icon {
+    position: absolute;
+    left: var(--space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    color: var(--color-text-tertiary);
+    pointer-events: none;
+  }
+</style>
+
+<script>
+  function initSearch() {
+    const searchInput = document.getElementById('toolSearch') as HTMLInputElement;
+    if (!searchInput) return;
+
+    searchInput.addEventListener('input', (e) => {
+      const query = (e.target as HTMLInputElement).value.toLowerCase();
+      const toolCards = document.querySelectorAll('.tool-card');
+      const sections = document.querySelectorAll('.tools-section');
+
+      toolCards.forEach((card) => {
+        const toolName = card.getAttribute('data-tool-name') || '';
+        const shouldShow = toolName.toLowerCase().includes(query);
+        
+        (card as HTMLElement).style.display = shouldShow ? 'block' : 'none';
+      });
+
+      // Hide empty sections
+      sections.forEach((section) => {
+        const visibleCards = section.querySelectorAll('.tool-card:not([style*="display: none"])');
+        (section as HTMLElement).style.display = visibleCards.length > 0 ? 'block' : 'none';
+      });
+    });
+  }
+
+  // Initialize on page load
+  document.addEventListener('DOMContentLoaded', initSearch);
+  // Re-initialize after view transitions
+  document.addEventListener('astro:after-swap', initSearch);
+</script>

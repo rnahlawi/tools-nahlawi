@@ -1,0 +1,16 @@
+{
+  "name": "Nahlawi Tools",
+  "short_name": "Tools",
+  "description": "Free online tools that respect your privacy. All tools run locally in your browser.",
+  "start_url": "/",
+  "display": "standalone",
+  "background_color": "#ffffff",
+  "theme_color": "#2563eb",
+  "icons": [
+    {
+      "src": "/favicon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml"
+    }
+  ]
+}

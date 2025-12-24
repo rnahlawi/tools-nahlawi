@@ -1,0 +1,8 @@
+User-agent: *
+Allow: /
+
+Sitemap: https://tools.nahlawi.com/sitemap-index.xml
+
+# Disallow admin areas (if any in future)
+Disallow: /admin/
+Disallow: /*.json$

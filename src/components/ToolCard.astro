@@ -1,0 +1,75 @@
+---
+import type { Tool } from '../types/tool';
+
+interface Props {
+  tool: Tool;
+}
+
+const { tool } = Astro.props;
+const toolUrl = `/tools/${tool.id}`;
+---
+
+<a href={toolUrl} class="tool-card" data-tool-name={tool.keywords.join(' ')}>
+  <div class="tool-icon">{tool.icon}</div>
+  <h3>{tool.name}</h3>
+  <p>{tool.description}</p>
+  {tool.featured && <span class="featured-badge">Featured</span>}
+</a>
+
+<style>
+  .tool-card {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    transition: all var(--transition-base);
+    cursor: pointer;
+    text-decoration: none;
+    display: block;
+    position: relative;
+  }
+
+  .tool-card:hover {
+    transform: translateY(-4px);
+    box-shadow: var(--shadow-lg);
+    border-color: var(--color-primary);
+  }
+
+  .tool-icon {
+    width: 48px;
+    height: 48px;
+    background: var(--color-primary-alpha);
+    border-radius: var(--radius-md);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: var(--font-size-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tool-card h3 {
+    font-size: var(--font-size-lg);
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+  }
+
+  .tool-card p {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+    margin: 0;
+  }
+
+  .featured-badge {
+    position: absolute;
+    top: var(--space-md);
+    right: var(--space-md);
+    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
+    color: white;
+    font-size: var(--font-size-xs);
+    font-weight: var(--font-weight-semibold);
+    padding: var(--space-xs) var(--space-sm);
+    border-radius: var(--radius-full);
+    text-transform: uppercase;
+    letter-spacing: 0.05em;
+  }
+</style>
