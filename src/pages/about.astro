@@ -4,196 +4,279 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 
 <BaseLayout 
   title="About" 
-  description="Learn about Nahlawi Tools - Free, privacy-focused online utilities that work entirely in your browser."
+  description="About Nahlawi Tools - Free, privacy-focused online utilities that work entirely in your browser."
 >
-  <div class="page-content">
+  <div class="tool-page">
     <div class="container">
-      <article class="content-article">
-        <header class="page-header">
+      <div class="tool-container about-container">
+        <header class="tool-header">
           <h1>About Nahlawi Tools</h1>
-          <p class="lead">Free, privacy-focused online utilities built for everyone</p>
+          <p>Free online utilities that respect your privacy</p>
+		  <p><strong>Version:</strong> 3.0.0 - Built with Astro and Vue 3</p>
+          <p><strong>Updated:</strong> December 2025</p>
         </header>
 
-        <section class="content-section">
-          <h2>🎯 Our Mission</h2>
+        <div class="tool-interface">
+          <h2>Our Mission</h2>
           <p>
-            Nahlawi Tools provides free, high-quality online utilities that respect your privacy. 
-            All tools run entirely in your browser - your data never leaves your device.
+            Nahlawi Tools provides a collection of free, easy-to-use online utilities that solve everyday problems. 
+            We believe that useful tools should be accessible to everyone without compromising privacy or requiring registration.
           </p>
-        </section>
 
-        <section class="content-section">
-          <h2>🔒 Privacy First</h2>
-          <ul>
-            <li><strong>No Tracking:</strong> We don't use analytics or tracking scripts</li>
-            <li><strong>No Sign-up:</strong> Use all tools instantly, no account required</li>
-            <li><strong>No Data Collection:</strong> Your data stays on your device</li>
-            <li><strong>Open Source:</strong> All code is transparent and auditable</li>
-          </ul>
-        </section>
-
-        <section class="content-section">
-          <h2>⚡ Features</h2>
+          <h2 class="section-heading">Why We're Different</h2>
           <div class="features-grid">
             <div class="feature-card">
-              <h3>🚀 Fast & Lightweight</h3>
-              <p>Built with modern web technologies for optimal performance</p>
+              <span class="feature-icon">🔒</span>
+              <h3>100% Private</h3>
+              <p>All processing happens in your browser</p>
             </div>
             <div class="feature-card">
-              <h3>📱 Mobile Friendly</h3>
-              <p>Works perfectly on all devices - phone, tablet, or desktop</p>
+              <span class="feature-icon">🚫</span>
+              <h3>No Tracking</h3>
+              <p>No cookies, no analytics, no ads</p>
             </div>
             <div class="feature-card">
-              <h3>🌙 Dark Mode</h3>
-              <p>Easy on the eyes with automatic dark mode support</p>
+              <span class="feature-icon">⚡</span>
+              <h3>Lightning Fast</h3>
+              <p>Instant results with no server delays</p>
             </div>
             <div class="feature-card">
-              <h3>🔄 Always Free</h3>
-              <p>No premium features, no paywalls, just tools that work</p>
+              <span class="feature-icon">💻</span>
+              <h3>Works Offline</h3>
+              <p>Use tools even without internet</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">📱</span>
+              <h3>Mobile Friendly</h3>
+              <p>Optimized for all devices</p>
+            </div>
+            <div class="feature-card">
+              <span class="feature-icon">🆓</span>
+              <h3>Forever Free</h3>
+              <p>No premium plans or paywalls</p>
             </div>
           </div>
-        </section>
 
-        <section class="content-section">
-          <h2>🛠️ Technology</h2>
-          <p>
-            <strong>Version:</strong> 3.0.0<br>
-            <strong>Built with:</strong> Astro, Vue 3, TypeScript<br>
-            <strong>Hosted on:</strong> Hostinger<br>
-            <strong>Updated:</strong> December 2025
-          </p>
-        </section>
+          <h2 class="section-heading">Our Principles</h2>
+          <ul class="principles-list">
+            <li>
+              <strong>Privacy First:</strong> Your data never leaves your device. 
+              All tools run entirely in your browser using client-side JavaScript.
+            </li>
+            <li>
+              <strong>No Registration Required:</strong> Use all tools immediately 
+              without creating an account or providing any personal information.
+            </li>
+            <li>
+              <strong>Open and Transparent:</strong> Our code is clean, 
+              well-documented, and available for review.
+            </li>
+            <li>
+              <strong>Accessibility:</strong> We strive to make our tools 
+              accessible to everyone, regardless of ability or device.
+            </li>
+            <li>
+              <strong>Continuous Improvement:</strong> We regularly add new tools 
+              and improve existing ones based on user needs.
+            </li>
+          </ul>
 
-        <section class="content-section">
-          <h2>📧 Contact</h2>
+          <h2 class="section-heading">Technology Stack</h2>
           <p>
-            Have a suggestion for a new tool? Found a bug? We'd love to hear from you!
+            Nahlawi Tools is built with modern web technologies:
           </p>
-          <p>
-            <strong>Email:</strong> <a href="mailto:rush@nahlawi.com">rush@nahlawi.com</a>
-          </p>
-        </section>
+          <ul class="tech-list">
+            <li>Astro + Vue 3 for optimal performance</li>
+            <li>TypeScript for type safety and better development experience</li>
+            <li>Responsive design that works on all devices</li>
+            <li>Progressive Web App capabilities for offline use</li>
+            <li>Minimal external dependencies for better privacy and performance</li>
+          </ul>
 
-        <section class="content-section">
-          <h2>🙏 Acknowledgments</h2>
+          <h2 class="section-heading">Feedback & Suggestions</h2>
           <p>
-            Special thanks to the open-source community and the developers of 
-            <a href="https://astro.build" target="_blank">Astro</a>, 
-            <a href="https://vuejs.org" target="_blank">Vue.js</a>, and 
-            <a href="https://github.com/CorentinTh/it-tools" target="_blank">it-tools</a>.
+            Have an idea for a new tool? Found a bug? We'd love to hear from you! 
+            Your feedback helps us make Nahlawi Tools better for everyone.
           </p>
-        </section>
-      </article>
+          <div class="feedback-actions">
+            <a href="https://github.com/rnahlawi/tools-nahlawi" class="btn btn-primary" target="_blank" rel="noopener">
+              📝 Submit Feedback on GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="info-box coming-soon">
+          <h3>🌟 Always Improving</h3>
+          <p>We're constantly working on new features and tools. Our toolkit now includes:</p>
+          <div class="tools-summary">
+            <div class="summary-column">
+              <h4>✅ Calculators</h4>
+              <ul>
+                <li>Age Calculator</li>
+                <li>Percentage Calculator</li>
+                <li>BMI Calculator</li>
+              </ul>
+            </div>
+            <div class="summary-column">
+              <h4>✅ Text Tools</h4>
+              <ul>
+                <li>Word Counter</li>
+                <li>Case Converter</li>
+                <li>Text Reverser</li>
+                <li>Remove Line Breaks</li>
+              </ul>
+            </div>
+            <div class="summary-column">
+              <h4>✅ Generators</h4>
+              <ul>
+                <li>Password Generator</li>
+                <li>Random Number</li>
+                <li>Lorem Ipsum</li>
+                <li>QR Code Generator</li>
+              </ul>
+            </div>
+            <div class="summary-column">
+              <h4>✅ Developer Tools</h4>
+              <ul>
+                <li>Base64 Encoder</li>
+                <li>URL Encoder</li>
+                <li>Hash Generator</li>
+                <li>JSON Formatter</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
   </div>
 </BaseLayout>
 
 <style>
-  .page-content {
-    padding: var(--space-3xl) 0;
-    min-height: calc(100vh - 200px);
+  .about-container {
+    max-width: 900px;
   }
 
-  .content-article {
-    max-width: 800px;
-    margin: 0 auto;
-  }
-
-  .page-header {
-    text-align: center;
-    margin-bottom: var(--space-3xl);
-    padding-bottom: var(--space-2xl);
-    border-bottom: 2px solid var(--color-border);
-  }
-
-  .page-header h1 {
-    margin-bottom: var(--space-md);
-    background: linear-gradient(135deg, var(--color-primary), var(--color-secondary));
-    -webkit-background-clip: text;
-    -webkit-text-fill-color: transparent;
-    background-clip: text;
-  }
-
-  .lead {
-    font-size: var(--font-size-xl);
-    color: var(--color-text-secondary);
-    margin: 0;
-  }
-
-  .content-section {
-    margin-bottom: var(--space-3xl);
-  }
-
-  .content-section h2 {
-    color: var(--color-primary);
+  .section-heading {
+    margin-top: var(--space-2xl);
     margin-bottom: var(--space-lg);
-    font-size: var(--font-size-2xl);
-  }
-
-  .content-section h3 {
-    margin-bottom: var(--space-sm);
-    font-size: var(--font-size-lg);
-  }
-
-  .content-section p {
-    line-height: var(--line-height-relaxed);
-    margin-bottom: var(--space-md);
-  }
-
-  .content-section ul {
-    margin: var(--space-lg) 0;
-    padding-left: var(--space-xl);
-  }
-
-  .content-section li {
-    margin-bottom: var(--space-md);
-    line-height: var(--line-height-relaxed);
-    color: var(--color-text-secondary);
-  }
-
-  .content-section li strong {
-    color: var(--color-text);
   }
 
   .features-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: var(--space-lg);
+    margin: var(--space-xl) 0;
+  }
+
+  .feature-card {
+    background: var(--color-primary-alpha);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-xl);
+    text-align: center;
+    transition: all var(--transition-fast);
+  }
+
+  .feature-card:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .feature-icon {
+    font-size: var(--font-size-3xl);
+    display: block;
+    margin-bottom: var(--space-sm);
+  }
+
+  .feature-card h3 {
+    font-size: var(--font-size-base);
+    margin-bottom: var(--space-xs);
+    color: var(--color-text);
+  }
+
+  .feature-card p {
+    font-size: var(--font-size-sm);
+    margin: 0;
+    color: var(--color-text-secondary);
+  }
+
+  .principles-list {
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin: var(--space-lg) 0;
+  }
+
+  .principles-list li {
+    margin-bottom: var(--space-md);
+  }
+
+  .principles-list strong {
+    color: var(--color-text);
+  }
+
+  .tech-list {
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin: var(--space-lg) 0;
+  }
+
+  .tech-list li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .feedback-actions {
+    margin-top: var(--space-lg);
+  }
+
+  .coming-soon {
+    margin-top: var(--space-2xl);
+  }
+
+  .tools-summary {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
     gap: var(--space-lg);
     margin-top: var(--space-lg);
   }
 
-  .feature-card {
-    background: var(--color-surface);
-    border: 1px solid var(--color-border);
-    border-radius: var(--radius-lg);
-    padding: var(--space-lg);
-  }
-
-  .feature-card h3 {
-    color: var(--color-text);
+  .summary-column h4 {
+    color: var(--color-primary);
     margin-bottom: var(--space-sm);
+    font-size: var(--font-size-base);
   }
 
-  .feature-card p {
-    color: var(--color-text-secondary);
-    font-size: var(--font-size-sm);
+  .summary-column ul {
+    list-style: none;
+    padding: 0;
     margin: 0;
   }
 
-  a {
-    color: var(--color-primary);
-    text-decoration: underline;
+  .summary-column li {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    margin-bottom: var(--space-xs);
+    padding-left: var(--space-md);
+    position: relative;
   }
 
-  a:hover {
-    color: var(--color-primary-dark);
+  .summary-column li::before {
+    content: "•";
+    position: absolute;
+    left: 0;
+    color: var(--color-primary);
   }
 
   @media (max-width: 768px) {
-    .page-content {
-      padding: var(--space-2xl) 0;
+    .features-grid {
+      grid-template-columns: repeat(2, 1fr);
     }
 
+    .tools-summary {
+      grid-template-columns: 1fr;
+    }
+  }
+
+  @media (max-width: 480px) {
     .features-grid {
       grid-template-columns: 1fr;
     }

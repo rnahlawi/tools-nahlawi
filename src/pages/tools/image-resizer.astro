@@ -1,0 +1,74 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ImageResizer from '../../components/tools/ImageResizer.vue';
+---
+
+<BaseLayout 
+  title="Image Resizer" 
+  description="Resize, compress, and optimize images without uploading. All processing happens in your browser - complete privacy."
+  keywords="image resizer, resize image, compress image, optimize photo, image compressor"
+>
+  <div class="tool-page">
+    <div class="container">
+      <div class="tool-container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-separator">›</span>
+          <span>Image Resizer</span>
+        </nav>
+
+        <header class="tool-header">
+          <h1>
+            <span class="tool-icon-large">🖼️</span>
+            Image Resizer
+          </h1>
+          <p>Resize, compress, and optimize images without uploading. Complete privacy guaranteed.</p>
+        </header>
+
+        <div class="tool-interface">
+          <ImageResizer client:load />
+        </div>
+
+        <div class="info-box">
+          <h3>How to Use</h3>
+          <ul>
+            <li>Drop an image or click to browse from your computer</li>
+            <li>Adjust width and height (lock aspect ratio to maintain proportions)</li>
+            <li>Choose output format (JPEG, PNG, or WebP)</li>
+            <li>Adjust quality slider for JPEG/WebP</li>
+            <li>Click "Resize Image" to process</li>
+            <li>Download or copy the resized image</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>✨ Features</h3>
+          <ul>
+            <li>✅ <strong>100% Client-Side:</strong> All processing in your browser</li>
+            <li>✅ <strong>No Upload:</strong> Images never leave your device</li>
+            <li>✅ <strong>Multiple Formats:</strong> Support for JPEG, PNG, WebP</li>
+            <li>✅ <strong>Quality Control:</strong> Adjust compression quality</li>
+            <li>✅ <strong>Batch Resize:</strong> Quick resize to 25%, 50%, 75%, 100%</li>
+            <li>✅ <strong>Instant Preview:</strong> See before/after comparison</li>
+            <li>✅ <strong>File Size Info:</strong> See compression savings</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>💡 Tips</h3>
+          <ul>
+            <li><strong>For Web:</strong> Use JPEG at 70-85% quality for photos</li>
+            <li><strong>For Transparency:</strong> Use PNG format</li>
+            <li><strong>Best Compression:</strong> Try WebP format (smallest files)</li>
+            <li><strong>Social Media:</strong> Instagram: 1080×1080px, Twitter: 1200×675px</li>
+            <li><strong>Lock Aspect Ratio:</strong> Keep it locked to avoid distortion</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Reuse existing tool page styles */
+</style>

@@ -1,94 +1,238 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
 
-const lastUpdated = 'December, 2025';
+const lastUpdated = 'December 2025';
 ---
 
 <BaseLayout 
   title="Privacy Policy" 
-  description="Privacy Policy for Nahlawi Tools - We respect your privacy and don't collect any personal data."
+  description="Privacy Policy for Nahlawi Tools - We don't collect, store, or share any of your data."
 >
-  <div class="page-content">
+  <div class="tool-page">
     <div class="container">
-      <article class="content-article">
-        <header class="page-header">
+      <div class="tool-container privacy-container">
+        <header class="tool-header">
           <h1>Privacy Policy</h1>
-          <p class="lead">Your privacy is our priority</p>
-          <p class="updated">Last updated: {lastUpdated}</p>
+          <p>Your privacy is our top priority</p>
+          <p class="last-updated">Last updated: {lastUpdated}</p>
         </header>
 
-        <div class="tl-dr">
-  <h2>📌 TL;DR</h2>
-  <p>
-    <strong>We don't collect, store, track, or analyze anything. Period.</strong><br>
-    All tools run entirely in your browser. Your data never leaves your device.<br>
-    We don't even use analytics - we respect your privacy completely.
-  </p>
-</div>
+        <div class="tool-interface">
+          <div class="alert alert-success">
+            <strong>TL;DR:</strong> We don't collect, store, track, or share any of your data. Everything runs in your browser.
+          </div>
 
-<section class="content-section">
-  <h2>1. What We Don't Collect</h2>
-  <p>
-    Nahlawi Tools is designed with <strong>absolute privacy</strong> as the foundation. We:
-  </p>
-  <ul>
-    <li>✅ <strong>No cookies</strong> (except dark mode preference stored locally)</li>
-    <li>✅ <strong>No analytics</strong> - not even privacy-friendly ones</li>
-    <li>✅ <strong>No tracking scripts</strong> of any kind</li>
-    <li>✅ <strong>No user accounts</strong> or sign-ups</li>
-    <li>✅ <strong>No data storage</strong> on our servers</li>
-    <li>✅ <strong>No third-party services</strong></li>
-    <li>✅ <strong>No ads</strong> or advertising networks</li>
-  </ul>
-  <p class="privacy-highlight">
-    We literally cannot see what you're doing on this site. And that's by design.
-  </p>
-</section>
+          <h2>Introduction</h2>
+          <p>
+            At Nahlawi Tools, we believe privacy is a fundamental right. This privacy policy explains our 
+            approach to your data - which is simple: we don't collect it.
+          </p>
 
-<section class="content-section">
-  <h2>2. Google Search Console</h2>
-  <p>
-    We use Google Search Console to understand how people find us through search engines. 
-    This is a webmaster tool, not user tracking. It shows us:
-  </p>
-  <ul>
-    <li>Which search queries lead to our site</li>
-    <li>How our pages appear in search results</li>
-    <li>Technical issues with our site</li>
-  </ul>
-  <p>
-    <strong>Important:</strong> Google Search Console does NOT track individual users, 
-    does NOT use cookies, and does NOT collect personal data. It only shows aggregate 
-    search statistics.
-  </p>
-</section>
+          <h2 class="section-heading">What We DON'T Collect</h2>
+          <ul class="policy-list">
+            <li>
+              <strong>No Personal Information:</strong> We don't ask for or 
+              collect names, email addresses, phone numbers, or any other personal information.
+            </li>
+            <li>
+              <strong>No Usage Analytics:</strong> We don't use Google Analytics, 
+              Facebook Pixel, or any other tracking or analytics service.
+            </li>
+            <li>
+              <strong>No Cookies:</strong> We don't set any tracking cookies. 
+              The only data stored locally is your theme preference (dark/light mode) using localStorage.
+            </li>
+            <li>
+              <strong>No Server Logs:</strong> Your input data never reaches our 
+              servers because all tools run entirely in your browser.
+            </li>
+            <li>
+              <strong>No Third-Party Sharing:</strong> Since we don't collect 
+              data, there's nothing to share with third parties.
+            </li>
+          </ul>
 
-<section class="content-section">
-  <h2>3. Future Plans</h2>
-  <p>
-    If we ever decide to add any tracking, analytics, or advertising, we will:
-  </p>
-  <ul>
-    <li>Update this policy at least 30 days in advance</li>
-    <li>Announce the change prominently on the homepage</li>
-    <li>Only use privacy-first services (no Google Analytics, no ad trackers)</li>
-    <li>Make it completely optional (opt-in, not opt-out)</li>
-    <li>Continue to keep all tool processing local in your browser</li>
-  </ul>
-  <p>
-    <strong>Our commitment:</strong> Your data will NEVER be sold, shared, or used 
-    for any purpose other than improving the tools you love.
-  </p>
-</section>
+          <h2 class="section-heading">How Our Tools Work</h2>
+          <p>
+            All tools on Nahlawi Tools run 100% client-side, meaning:
+          </p>
+          <ul class="simple-list">
+            <li>All processing happens in your web browser</li>
+            <li>Your data never leaves your device</li>
+            <li>No information is sent to any server</li>
+            <li>You can use the tools completely offline after the initial page load</li>
+          </ul>
+
+          <h2 class="section-heading">Local Storage</h2>
+          <p>
+            The only data we store locally on your device is:
+          </p>
+          <ul class="simple-list">
+            <li>
+              <strong>Theme Preference:</strong> Your choice of light or dark 
+              mode is saved in your browser's localStorage so it persists across visits.
+            </li>
+          </ul>
+          <p>
+            This data never leaves your device and can be cleared at any time by clearing your browser's local storage.
+          </p>
+
+          <h2 class="section-heading">External Resources</h2>
+          <p>
+            We use minimal external resources:
+          </p>
+          <ul class="policy-list">
+            <li>
+              <strong>CDN Resources:</strong> Some tools may load JavaScript libraries from trusted CDNs 
+              like cdnjs.cloudflare.com for specific functionality. No personal data is sent to these CDNs.
+            </li>
+          </ul>
+
+          <h2 class="section-heading">Hosting</h2>
+          <p>
+            Our website is hosted on a static hosting platform. While the hosting provider may collect standard 
+            server logs (IP addresses, access times) for security and performance purposes, these logs are managed 
+            by the hosting provider and not by us. We have no access to or control over these logs.
+          </p>
+
+          <h2 class="section-heading">Security</h2>
+          <p>
+            Since we don't collect or store any data, there's no database to breach or data to compromise. 
+            Your information stays on your device where it belongs.
+          </p>
+
+          <h2 class="section-heading">Children's Privacy</h2>
+          <p>
+            Our tools are safe for users of all ages. Since we don't collect any data, there's no risk to 
+            children's privacy.
+          </p>
+
+          <h2 class="section-heading">Changes to This Policy</h2>
+          <p>
+            If we ever change our privacy practices (though we don't plan to), we'll update this page and note 
+            the date of the update at the top.
+          </p>
+
+          <h2 class="section-heading">Open Source</h2>
+          <p>
+            Our code is open and transparent. You can review the source code to verify that we do what we say - 
+            which is nothing when it comes to collecting your data.
+          </p>
+
+          <h2 class="section-heading">Contact</h2>
+          <p>
+            If you have any questions about this privacy policy, you can open an issue on our GitHub repository.
+          </p>
+
+          <div class="contact-actions">
+            <a href="https://github.com/rnahlawi/tools-nahlawi" class="btn btn-primary" target="_blank" rel="noopener">
+              📝 Contact Us on GitHub
+            </a>
+          </div>
+        </div>
+
+        <div class="info-box commitment-box">
+          <h3>🔒 Our Privacy Commitment</h3>
+          <p>
+            We built Nahlawi Tools because we believe useful tools shouldn't come at the cost of your privacy. 
+            In an age where every website tracks your every move, we choose to do the opposite. Your data is 
+            yours, and it should stay that way.
+          </p>
+          <p class="final-statement">
+            <strong>No tracking. No ads. No data collection. Just tools that work.</strong>
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
 
 <style>
-  .privacy-highlight {
-    background: linear-gradient(135deg, rgba(16, 185, 129, 0.1), rgba(59, 130, 246, 0.1));
-    border-left: 4px solid var(--color-success);
-    padding: var(--space-lg);
+  .privacy-container {
+    max-width: 800px;
+  }
+
+  .last-updated {
+    font-size: var(--font-size-sm);
+    color: var(--color-text-tertiary);
+    margin-top: var(--space-xs);
+  }
+
+  .alert {
+    padding: var(--space-md);
     border-radius: var(--radius-md);
-    font-weight: var(--font-weight-semibold);
+    margin-bottom: var(--space-xl);
+    border: 1px solid;
+  }
+
+  .alert-success {
+    background: rgba(16, 185, 129, 0.1);
+    border-color: var(--color-success);
     color: var(--color-text);
+  }
+
+  .alert strong {
+    color: var(--color-success);
+  }
+
+  .section-heading {
+    margin-top: var(--space-2xl);
+    margin-bottom: var(--space-md);
+  }
+
+  .tool-interface p {
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+    margin-bottom: var(--space-md);
+  }
+
+  .policy-list {
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
     margin: var(--space-lg) 0;
+  }
+
+  .policy-list li {
+    margin-bottom: var(--space-md);
+  }
+
+  .policy-list strong {
+    color: var(--color-text);
+  }
+
+  .simple-list {
+    line-height: var(--line-height-relaxed);
+    color: var(--color-text-secondary);
+    margin: var(--space-md) 0;
+  }
+
+  .simple-list li {
+    margin-bottom: var(--space-sm);
+  }
+
+  .contact-actions {
+    margin-top: var(--space-xl);
+  }
+
+  .commitment-box {
+    margin-top: var(--space-2xl);
+  }
+
+  .commitment-box h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+  }
+
+  .commitment-box p {
+    margin-bottom: var(--space-md);
+  }
+
+  .final-statement {
+    margin-bottom: 0;
+    font-size: var(--font-size-lg);
+  }
+
+  .final-statement strong {
+    color: var(--color-primary);
   }
 </style>

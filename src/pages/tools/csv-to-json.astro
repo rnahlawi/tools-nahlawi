@@ -1,0 +1,204 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import CsvToJson from '../../components/tools/CsvToJson.vue';
+---
+
+<BaseLayout 
+  title="CSV to JSON Converter" 
+  description="Convert CSV to JSON and JSON to CSV. Preview data in table format with download options. All processing in your browser."
+  keywords="csv to json, json to csv, csv converter, data converter, spreadsheet to json"
+>
+  <div class="tool-page">
+    <div class="container">
+      <div class="tool-container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-separator">›</span>
+          <span>CSV to JSON Converter</span>
+        </nav>
+
+        <header class="tool-header">
+          <h1>
+            <span class="tool-icon-large">📊</span>
+            CSV to JSON Converter
+          </h1>
+          <p>Convert between CSV and JSON formats. Preview, edit, and download your data.</p>
+        </header>
+
+        <div class="tool-interface">
+          <CsvToJson client:load />
+        </div>
+
+        <div class="info-box">
+          <h3>How to Use</h3>
+          <ul>
+            <li>Choose conversion mode - CSV to JSON or JSON to CSV</li>
+            <li>Paste your data or load sample data</li>
+            <li>Configure options like delimiter and headers</li>
+            <li>Click Convert to transform your data</li>
+            <li>Preview results in table format</li>
+            <li>Copy to clipboard or download as file</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>Features</h3>
+          <ul>
+            <li>Bi-directional conversion between CSV and JSON</li>
+            <li>Multiple delimiters supported - comma, semicolon, tab, pipe</li>
+            <li>Smart parsing handles quoted values and special characters</li>
+            <li>Preview table shows data before downloading</li>
+            <li>Header options - include or exclude as needed</li>
+            <li>JSON prettify for readable formatting</li>
+            <li>Download as .csv or .json file</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>Tips</h3>
+          <ul>
+            <li>Excel CSV - use comma delimiter with headers</li>
+            <li>European CSV - many use semicolon delimiter</li>
+            <li>Tab-Separated - good for data with commas in values</li>
+            <li>Quoted Values - automatically handled</li>
+            <li>Large Files - works great even with thousands of rows</li>
+            <li>Data Cleaning - enable trim whitespace option</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>Use Cases</h3>
+          <ul>
+            <li>Data Migration - move data between systems</li>
+            <li>API Development - convert CSV exports to JSON for APIs</li>
+            <li>Excel to Web - import spreadsheet data to web apps</li>
+            <li>Database Import - prepare data for database insertion</li>
+            <li>Data Analysis - convert formats for different tools</li>
+            <li>Configuration Files - create config files from spreadsheets</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page {
+    padding: var(--space-2xl) 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .tool-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--color-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-text-tertiary);
+  }
+
+  .tool-header {
+    margin-bottom: var(--space-2xl);
+    text-align: center;
+  }
+
+  .tool-header h1 {
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .tool-icon-large {
+    font-size: var(--font-size-4xl);
+  }
+
+  .tool-header p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  .tool-interface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .info-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .info-box:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-lg);
+  }
+
+  .info-box p {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box ul {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-xl);
+  }
+
+  .info-box li {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
+  }
+
+  @media (max-width: 768px) {
+    .tool-interface {
+      padding: var(--space-lg);
+    }
+
+    .tool-header h1 {
+      flex-direction: column;
+      gap: var(--space-sm);
+      font-size: var(--font-size-2xl);
+    }
+
+    .tool-icon-large {
+      font-size: var(--font-size-3xl);
+    }
+  }
+</style>

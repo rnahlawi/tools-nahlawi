@@ -1,0 +1,416 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import IpLookup from '../../components/tools/IpLookup.vue';
+---
+
+<BaseLayout 
+  title="IP Address Lookup" 
+  description="Get your public IP address and geolocation information. Find IP location, ISP, timezone, and more using ipify API."
+  keywords="ip address, ip lookup, geolocation, ipify, find my ip, public ip, ip location"
+>
+  <div class="tool-page">
+    <div class="container">
+      <div class="tool-container">
+        <!-- Breadcrumb -->
+        <nav class="breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-separator">›</span>
+          <span>IP Address Lookup</span>
+        </nav>
+
+        <!-- Tool Header -->
+        <header class="tool-header">
+          <h1>
+            <span class="tool-icon-large">🌐</span>
+            IP Address Lookup
+          </h1>
+          <p>Get your public IP address and geolocation information instantly</p>
+        </header>
+
+        <!-- Privacy Tier Badge -->
+        <div class="privacy-badge tier-2">
+          <div class="badge-icon">🟡</div>
+          <div class="badge-content">
+            <h4>Tier 2: API-Based Tool</h4>
+            <p>Uses ipify API and ipapi.co to get IP information. No data is stored on our servers. Lookups are saved locally in your browser only.</p>
+          </div>
+        </div>
+
+        <!-- Tool Interface -->
+        <div class="tool-interface">
+          <IpLookup client:load />
+        </div>
+
+        <!-- How to Use -->
+        <div class="info-box">
+          <h3>How to Use</h3>
+          <ol>
+            <li>Click "Get My IP Info" to see your current public IP address and location</li>
+            <li>View detailed information including city, region, country, ISP, and timezone</li>
+            <li>Click "Lookup Different IP" to check information for any IP address</li>
+            <li>Click on recent lookups to view them again</li>
+            <li>Click the copy button to copy your IP address to clipboard</li>
+          </ol>
+        </div>
+
+        <!-- Features & Info -->
+        <div class="info-box">
+          <h3>Features</h3>
+          <ul>
+            <li>✅ <strong>Instant Lookup:</strong> Get your IP address and location instantly</li>
+            <li>✅ <strong>Detailed Information:</strong> City, region, country, ISP, timezone, coordinates</li>
+            <li>✅ <strong>Custom Lookup:</strong> Look up any public IP address</li>
+            <li>✅ <strong>Map Integration:</strong> View location on Google Maps</li>
+            <li>✅ <strong>Recent History:</strong> Quick access to your recent lookups</li>
+            <li>✅ <strong>Privacy Focused:</strong> History stored locally, nothing sent to our servers</li>
+          </ul>
+        </div>
+
+        <!-- What is an IP Address -->
+        <div class="info-box">
+          <h3>What is an IP Address?</h3>
+          <p>
+            An <strong>IP address</strong> (Internet Protocol address) is a unique numerical label assigned 
+            to every device connected to the internet. It serves two main purposes:
+          </p>
+          <ul>
+            <li><strong>Identification:</strong> Identifies your device on the network</li>
+            <li><strong>Location Addressing:</strong> Provides the location of your device</li>
+          </ul>
+          
+          <h4 style="margin-top: var(--space-lg);">Public vs Private IP</h4>
+          <ul>
+            <li><strong>Public IP:</strong> Assigned by your ISP, visible to websites you visit (shown by this tool)</li>
+            <li><strong>Private IP:</strong> Assigned by your router, only visible within your local network</li>
+          </ul>
+
+          <h4 style="margin-top: var(--space-lg);">IPv4 vs IPv6</h4>
+          <ul>
+            <li><strong>IPv4:</strong> Traditional format (e.g., 192.168.1.1) - 32-bit, ~4.3 billion addresses</li>
+            <li><strong>IPv6:</strong> Modern format (e.g., 2001:0db8:85a3:0000:0000:8a2e:0370:7334) - 128-bit, virtually unlimited addresses</li>
+          </ul>
+        </div>
+
+        <!-- Use Cases -->
+        <div class="info-box">
+          <h3>Common Use Cases</h3>
+          <ul>
+            <li><strong>Troubleshooting:</strong> Check if your VPN is working correctly</li>
+            <li><strong>Network Setup:</strong> Find your public IP for remote access configuration</li>
+            <li><strong>Security:</strong> Verify your IP isn't associated with suspicious activity</li>
+            <li><strong>Geolocation:</strong> Check what location websites see when you visit them</li>
+            <li><strong>ISP Information:</strong> Identify your internet service provider and network details</li>
+            <li><strong>Testing:</strong> Verify IP changes after switching networks or using VPN</li>
+          </ul>
+        </div>
+
+        <!-- API Information -->
+        <div class="info-box">
+          <h3>About the APIs Used</h3>
+          <p>This tool uses two privacy-focused services:</p>
+          
+          <h4 style="margin-top: var(--space-md);">ipify API</h4>
+          <ul>
+            <li>Fast and reliable public IP detection</li>
+            <li>No rate limits for reasonable use</li>
+            <li>Free and open-source</li>
+            <li>Website: <a href="https://www.ipify.org/" target="_blank">ipify.org</a></li>
+          </ul>
+
+          <h4 style="margin-top: var(--space-md);">ipapi.co</h4>
+          <ul>
+            <li>Detailed geolocation data</li>
+            <li>Free tier: 1,000 requests per day</li>
+            <li>Includes ISP, timezone, and coordinate information</li>
+            <li>Website: <a href="https://ipapi.co/" target="_blank">ipapi.co</a></li>
+          </ul>
+
+          <p style="margin-top: var(--space-md);">
+            <strong>Note:</strong> If you exceed the rate limit (1,000 lookups per day), 
+            the detailed lookup may fail. The basic IP display will always work.
+          </p>
+        </div>
+
+        <!-- FAQ -->
+        <div class="info-box">
+          <h3>Frequently Asked Questions</h3>
+          
+          <details>
+            <summary>Why does my IP address change?</summary>
+            <p>
+              Most ISPs assign dynamic IP addresses that change periodically or when you restart 
+              your router. Business accounts often have static IPs that don't change.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is my IP address private information?</summary>
+            <p>
+              Your public IP is visible to every website you visit. It can reveal your approximate 
+              location and ISP but not your exact address or identity.
+            </p>
+          </details>
+
+          <details>
+            <summary>Why is the location not accurate?</summary>
+            <p>
+              IP geolocation is approximate. It usually shows your ISP's location, which may be 
+              in a nearby city rather than your exact location. For better accuracy, websites 
+              can request GPS permission from your browser.
+            </p>
+          </details>
+
+          <details>
+            <summary>Does this work with VPN or proxy?</summary>
+            <p>
+              Yes! If you're using a VPN or proxy, this tool will show the IP address and 
+              location of your VPN/proxy server, not your actual location.
+            </p>
+          </details>
+
+          <details>
+            <summary>Is this tool really private?</summary>
+            <p>
+              Yes. Your lookup history is stored only in your browser's localStorage. 
+              Nothing is sent to our servers. The APIs we use (ipify and ipapi.co) are 
+              also privacy-focused and don't track users.
+            </p>
+          </details>
+
+          <details>
+            <summary>Can I look up any IP address?</summary>
+            <p>
+              Yes! Click "Lookup Different IP" to check information for any public IP address. 
+              Private IP addresses (like 192.168.x.x) won't work as they're only used on local networks.
+            </p>
+          </details>
+        </div>
+
+        <!-- Privacy Notice -->
+        <div class="info-box" style="background: rgba(16, 185, 129, 0.1); border-left: 3px solid var(--color-success);">
+          <h3>🔒 Privacy & Security</h3>
+          <p>
+            <strong>100% Browser-Based History:</strong> Your lookup history is stored only in 
+            your browser's localStorage. We never see or store your searches on our servers.
+          </p>
+          <p>
+            <strong>Third-Party APIs:</strong> This tool uses ipify and ipapi.co APIs to get 
+            IP information. These services may log requests for rate limiting and abuse prevention, 
+            but they don't track individual users.
+          </p>
+          <p>
+            <strong>No Analytics:</strong> We don't use any analytics or tracking on this page. 
+            Your usage is completely private.
+          </p>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  .tool-page {
+    padding: var(--space-2xl) 0;
+    min-height: calc(100vh - 200px);
+  }
+
+  .tool-container {
+    max-width: 900px;
+    margin: 0 auto;
+  }
+
+  .breadcrumb {
+    display: flex;
+    gap: var(--space-sm);
+    align-items: center;
+    margin-bottom: var(--space-lg);
+    font-size: var(--font-size-sm);
+    color: var(--color-text-secondary);
+  }
+
+  .breadcrumb a {
+    color: var(--color-primary);
+    transition: color var(--transition-fast);
+  }
+
+  .breadcrumb a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  .breadcrumb-separator {
+    color: var(--color-text-tertiary);
+  }
+
+  .tool-header {
+    margin-bottom: var(--space-2xl);
+    text-align: center;
+  }
+
+  .tool-header h1 {
+    margin-bottom: var(--space-sm);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: var(--space-md);
+    flex-wrap: wrap;
+  }
+
+  .tool-icon-large {
+    font-size: var(--font-size-4xl);
+  }
+
+  .tool-header p {
+    font-size: var(--font-size-lg);
+    color: var(--color-text-secondary);
+    max-width: 600px;
+    margin: 0 auto;
+  }
+
+  /* Privacy Tier Badge */
+  .privacy-badge {
+    display: flex;
+    gap: var(--space-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-xl);
+    border-radius: var(--radius-lg);
+    border: 2px solid;
+  }
+
+  .privacy-badge.tier-2 {
+    background: linear-gradient(135deg, rgba(245, 158, 11, 0.1), rgba(251, 191, 36, 0.1));
+    border-color: var(--color-warning);
+  }
+
+  .badge-icon {
+    font-size: var(--font-size-3xl);
+  }
+
+  .badge-content h4 {
+    color: var(--color-warning);
+    margin-bottom: var(--space-xs);
+    font-size: var(--font-size-base);
+  }
+
+  .badge-content p {
+    color: var(--color-text-secondary);
+    font-size: var(--font-size-sm);
+    margin: 0;
+  }
+
+  .tool-interface {
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-lg);
+    padding: var(--space-2xl);
+    margin-bottom: var(--space-xl);
+    box-shadow: var(--shadow-sm);
+  }
+
+  .info-box {
+    background: linear-gradient(135deg, rgba(59, 130, 246, 0.1), rgba(16, 185, 129, 0.1));
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+    padding: var(--space-lg);
+    margin-bottom: var(--space-lg);
+  }
+
+  .info-box:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box h3 {
+    color: var(--color-primary);
+    margin-bottom: var(--space-md);
+    font-size: var(--font-size-lg);
+  }
+
+  .info-box h4 {
+    color: var(--color-text);
+    margin-bottom: var(--space-sm);
+    font-size: var(--font-size-base);
+  }
+
+  .info-box p {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .info-box p:last-child {
+    margin-bottom: 0;
+  }
+
+  .info-box ol,
+  .info-box ul {
+    margin: var(--space-md) 0;
+    padding-left: var(--space-xl);
+  }
+
+  .info-box li {
+    margin-bottom: var(--space-sm);
+    color: var(--color-text-secondary);
+    line-height: var(--line-height-relaxed);
+  }
+
+  .info-box a {
+    color: var(--color-primary);
+    text-decoration: underline;
+  }
+
+  .info-box a:hover {
+    color: var(--color-primary-dark);
+  }
+
+  /* FAQ Details */
+  details {
+    margin-bottom: var(--space-md);
+    padding: var(--space-md);
+    background: var(--color-surface);
+    border: 1px solid var(--color-border);
+    border-radius: var(--radius-md);
+  }
+
+  summary {
+    cursor: pointer;
+    font-weight: var(--font-weight-semibold);
+    color: var(--color-text);
+    padding: var(--space-sm);
+    user-select: none;
+  }
+
+  summary:hover {
+    color: var(--color-primary);
+  }
+
+  details[open] summary {
+    margin-bottom: var(--space-md);
+    padding-bottom: var(--space-md);
+    border-bottom: 1px solid var(--color-border);
+  }
+
+  details p {
+    padding: 0 var(--space-sm);
+    margin: 0;
+  }
+
+  @media (max-width: 768px) {
+    .tool-interface {
+      padding: var(--space-lg);
+    }
+
+    .tool-header h1 {
+      flex-direction: column;
+      gap: var(--space-sm);
+      font-size: var(--font-size-2xl);
+    }
+
+    .tool-icon-large {
+      font-size: var(--font-size-3xl);
+    }
+
+    .privacy-badge {
+      flex-direction: column;
+      text-align: center;
+    }
+  }
+</style>

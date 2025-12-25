@@ -1,0 +1,87 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import UrlShortener from '../../components/tools/UrlShortener.vue';
+---
+
+<BaseLayout 
+  title="URL Shortener" 
+  description="Create short links using privacy-focused is.gd API. No tracking, no ads, completely free. Shorten URLs instantly."
+  keywords="url shortener, short link, link shortener, tiny url, is.gd, free url shortener"
+>
+  <div class="tool-page">
+    <div class="container">
+      <div class="tool-container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-separator">›</span>
+          <span>URL Shortener</span>
+        </nav>
+
+        <header class="tool-header">
+          <h1>
+            <span class="tool-icon-large">🔗</span>
+            URL Shortener
+          </h1>
+          <p>Create short links with is.gd - privacy-focused, no tracking, completely free.</p>
+        </header>
+
+        <div class="tool-interface">
+          <UrlShortener client:load />
+        </div>
+
+        <div class="info-box">
+          <h3>How to Use</h3>
+          <ul>
+            <li>Paste your long URL into the input field</li>
+            <li>Optionally create a custom short code</li>
+            <li>Click Shorten URL button</li>
+            <li>Copy your short link and share it anywhere</li>
+            <li>Generate QR code for easy mobile sharing</li>
+            <li>View recent shortened URLs in history</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>Features</h3>
+          <ul>
+            <li>Privacy-focused is.gd API with no tracking</li>
+            <li>Custom short codes for branded links</li>
+            <li>QR code generation for mobile sharing</li>
+            <li>Recent URL history stored locally</li>
+            <li>One-click copy to clipboard</li>
+            <li>Share functionality for mobile devices</li>
+            <li>Permanent short links that never expire</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>Why is.gd?</h3>
+          <ul>
+            <li>No registration required</li>
+            <li>No tracking or analytics</li>
+            <li>No advertisements</li>
+            <li>Free forever</li>
+            <li>Fast and reliable</li>
+            <li>Links never expire</li>
+          </ul>
+        </div>
+
+        <div class="info-box">
+          <h3>Use Cases</h3>
+          <ul>
+            <li>Share long URLs on social media</li>
+            <li>Create memorable links for marketing</li>
+            <li>Shorten affiliate links</li>
+            <li>Generate QR codes for print materials</li>
+            <li>Clean up messy tracking URLs</li>
+            <li>Make email links more readable</li>
+          </ul>
+        </div>
+      </div>
+    </div>
+  </div>
+</BaseLayout>
+
+<style>
+  /* Reuse existing tool page styles */
+</style>

@@ -1,0 +1,86 @@
+---
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ColorPicker from '../../components/tools/ColorPicker.vue';
+---
+
+<BaseLayout 
+  title="Color Picker & Converter" 
+  description="Pick colors, convert between HEX, RGB, HSL, CMYK. Generate color palettes, harmonies, and shades."
+  keywords="color picker, hex to rgb, color converter, color palette, color harmony, gradient generator"
+>
+  <div class="tool-page">
+    <div class="container">
+      <div class="tool-container">
+        <nav class="breadcrumb">
+          <a href="/">Home</a>
+          <span class="breadcrumb-separator">›</span>
+          <span>Color Picker</span>
+        </nav>
+
+        <header class="tool-header">
+          <h1>
+            <span class="tool-icon-large">🎨</span>
+Color Picker & Converter
+</h1>
+<p>Pick colors, convert formats, and generate beautiful color palettes.</p>
+</header>
+<div class="tool-interface">
+      <ColorPicker client:load />
+    </div>
+
+    <div class="info-box">
+      <h3>How to Use</h3>
+      <ul>
+        <li>Click the large color display to open the color picker</li>
+        <li>Use RGB sliders for precise color control</li>
+        <li>Enter colors in any format (HEX, RGB, HSL)</li>
+        <li>Click "Random Color" for inspiration</li>
+        <li>Select harmony type to generate matching colors</li>
+        <li>Save your favorite colors for later use</li>
+        <li>Click any color to select it</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h3>✨ Features</h3>
+      <ul>
+        <li>✅ <strong>Multiple Formats:</strong> HEX, RGB, HSL, CMYK conversion</li>
+        <li>✅ <strong>Color Harmonies:</strong> Complementary, Analogous, Triadic, Tetradic, Monochromatic</li>
+        <li>✅ <strong>Shades & Tints:</strong> Generate 11 variations from black to white</li>
+        <li>✅ <strong>RGB Sliders:</strong> Fine-tune each color channel</li>
+        <li>✅ <strong>Save Palette:</strong> Store colors in browser (localStorage)</li>
+        <li>✅ <strong>One-Click Copy:</strong> Copy any color format instantly</li>
+        <li>✅ <strong>Random Generator:</strong> Get random color inspiration</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h3>💡 Color Theory Tips</h3>
+      <ul>
+        <li><strong>Complementary:</strong> Colors opposite on color wheel - high contrast</li>
+        <li><strong>Analogous:</strong> Colors next to each other - harmonious and calm</li>
+        <li><strong>Triadic:</strong> Three colors evenly spaced - vibrant and balanced</li>
+        <li><strong>Tetradic:</strong> Four colors in two complementary pairs - rich variety</li>
+        <li><strong>Monochromatic:</strong> Variations of one hue - elegant and cohesive</li>
+        <li><strong>60-30-10 Rule:</strong> Use 60% dominant, 30% secondary, 10% accent</li>
+      </ul>
+    </div>
+
+    <div class="info-box">
+      <h3>🎯 Use Cases</h3>
+      <ul>
+        <li><strong>Web Design:</strong> Choose colors for websites and apps</li>
+        <li><strong>Branding:</strong> Create brand color palettes</li>
+        <li><strong>UI/UX:</strong> Test accessibility and contrast</li>
+        <li><strong>CSS:</strong> Get exact color values for stylesheets</li>
+        <li><strong>Print Design:</strong> Convert to CMYK for printing</li>
+        <li><strong>Art Projects:</strong> Explore color combinations</li>
+      </ul>
+    </div>
+  </div>
+</div>
+</div>
+</BaseLayout>
+<style>
+  /* Reuse existing tool page styles */
+</style>
